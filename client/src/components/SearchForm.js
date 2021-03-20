@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Card, Form, Button } from "react-bootstrap";
-function searchForm() {
+import API from "../utils/API";
+
+ 
+function searchForm( { setBooks }) {
+  const bookInput = useRef();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    API.getBooks(bookInput.current.value)
+    .then(({ data }) => {
+      
+      setBooks(data);
+    });
+  };
+
   return (
     <Card>
       <Card.Body>
         <h2>Search</h2>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Search for a Book</Form.Label>
-            <Form.Control type="book" placeholder="Enter book title" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+            <Form.Control
+              ref={bookInput}
+              type="text"
+              placeholder="Enter book title"
+            />
           </Form.Group>
 
           <Button variant="primary" type="submit">
