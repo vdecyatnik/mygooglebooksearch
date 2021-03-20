@@ -1,21 +1,24 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import "./main.sass";
+import GlobalNavBar from "../src/components/GlobalNavBar";
+import Header from "../src/components/Header";
+import { Container } from "react-bootstrap";
+import SearchForm from "../src/components/SearchForm";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+function App() {
+  return (
+    <div>
+      <GlobalNavBar />
+      <Container className="py-5">
+      <Header />
+      <SearchForm />
+      </Container>
+      
+      <div className="container">
+        <div className="row"></div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
