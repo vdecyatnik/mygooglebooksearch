@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import SaveButton from "../components/SaveButton";
 
 function Results({ books }) {
   return (
@@ -23,6 +24,7 @@ function Results({ books }) {
                     <p> Description:{book.description}</p>
                     <p></p>
                     <p></p>
+                    <SaveButton />
                         </Card.Body>
                     </Card>
 

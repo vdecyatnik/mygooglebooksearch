@@ -5,7 +5,7 @@ import axios from "axios";
 const API = {
     async getBooks( book ) {
 
-        return{
+        return {
             data: [
 
                 {
@@ -41,7 +41,15 @@ const API = {
 
         } 
         
-        // axios.get( "");
+        
+
+
+
+    },
+
+    async addBook( book ) {
+       console.log(book);
+      return axios.post( "/api/books" , book );
 
 
 
