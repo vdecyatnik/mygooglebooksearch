@@ -2,20 +2,17 @@ import React, { useRef } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import API from "../utils/api";
 
- 
-function searchForm( { setBooks }) {
+function searchForm({ setBooks }) {
   const bookInput = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    API.getBooks(bookInput.current.value)
-    .then(({ data }) => {
-      
-      setBooks(data);
+    API.getBooks(bookInput.current.value).then((res) => {
+      console.log(res);
+      setBooks(res.data.items);
     });
   };
-
   return (
     <Card>
       <Card.Body>
